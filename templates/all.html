@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/all.css') }}">
+  <script type="text/javascript">
+  	function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+	console.log("gyghuh");
+	console.log(ev.target.id);
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  console.log(data);
+  var temp = document.getElementById(data);
+  console.log(temp);
+  ev.target.appendChild(temp);
+}
+  </script>
+</head>
+<body>
+<button class="button button5" ondrop="drop(event)" ondragover="allowDrop(event)">50%</button>
+<h1>ftff</h1>
+<div id="drawing" ondrop="drop(event)" ondragover="allowDrop(event)">
+</div>
+<div id="functions">
+
+<ul id="funcList">
+
+<script type="text/javascript">
+
+
+var cars = {{ res|tojson }};
+var i, len, text;
+for (i = 0, len = cars["result"].length, text = ""; i < len; i++) {
+  text += cars["result"][i] + "<br>";
+  var x = document.createElement("LI");
+  var t = document.createTextNode(cars["result"][i]);
+  x.setAttribute('id', i);
+  x.setAttribute('draggable', true);
+  x.setAttribute('ondragstart', "drag(event)")
+  x.appendChild(t);
+  document.getElementById("funcList").appendChild(x);
+}
+
+</script>
+<script type="text/javascript" src="app.js"></script>
+</ul>
+</div>
+
+
+
+</body>
+</html>
+
+
+
