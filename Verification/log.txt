@@ -1,4 +1,4 @@
 BookIssued:verify()
 LateSubmission:submit()
-BookIssued:verify()
 PayFine:fine()
+BookIssued:verify()
