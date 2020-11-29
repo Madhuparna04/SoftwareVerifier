@@ -16,15 +16,15 @@ behaviour of the software is anomalous or not.
 
 3. Run the combinemodel.py program to which will save the processed information in save.p file.
  
-`python3 combinemodel.py`
+   `python3 combinemodel.py`
 
 4. Run the flask app
 
-`python3 tool.py`
+   `python3 tool.py`
 
 5. Open it in browser
 
-'http://127.0.0.1:2020/'
+    http://127.0.0.1:2020/
 
 6. Upload a python program and click upload.
 
